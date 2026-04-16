@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Travel Dashboard</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <header class="header">
+    <div class="header__inner">
+      <span class="header__logo">✈️ TravelDash</span>
+      <p class="header__subtitle">Consulta la teva destinació abans de viatjar</p>
+    </div>
+  </header>
+
+  <main class="main">
+    <section class="selector-section">
+      <label for="city-select" class="selector-label">Selecciona una ciutat</label>
+      <select id="city-select" class="city-select">
+        <option value="">-- Tria una ciutat --</option>
+        <option value="barcelona">Barcelona</option>
+        <option value="london">London</option>
+        <option value="paris">Paris</option>
+        <option value="new_york">New York</option>
+        <option value="tokyo">Tokyo</option>
+      </select>
+    </section>
+    <div id="dashboard" class="dashboard hidden">
+      <section class="card card--summary" id="card-summary">
+        <div class="card__header">
+          <h2 class="card__title">📍 Resum de la destinació</h2>
+        </div>
+        <div class="card__body summary-grid">
+          <div class="summary-item">
+            <span class="summary-item__label">Ciutat</span>
+            <span class="summary-item__value" id="sum-city">—</span>
+          </div>
+          <div class="summary-item">
+            <span class="summary-item__label">País</span>
+            <span class="summary-item__value" id="sum-country">—</span>
+          </div>
+          <div class="summary-item">
+            <span class="summary-item__label">Temperatura</span>
+            <span class="summary-item__value" id="sum-temp">—</span>
+          </div>
+          <div class="summary-item">
+            <span class="summary-item__label">Moneda local</span>
+            <span class="summary-item__value" id="sum-currency">—</span>
+          </div>
+        </div>
+      </section>
+      <section class="card card--weather" id="card-weather">
+        <div class="card__header">
+          <h2 class="card__title">🌤️ Temps actual</h2>
+        </div>
+        <div class="card__body weather-grid">
+          <div class="weather-item">
+            <span class="weather-icon" id="weather-icon">⏳</span>
+            <span class="weather-temp" id="weather-temp">—</span>
+            <span class="weather-desc" id="weather-desc">Carregant...</span>
+          </div>
+          <div class="weather-detail">
+            <div class="weather-detail__row">
+              <span class="weather-detail__label">💧 Humitat</span>
+              <span class="weather-detail__value" id="weather-humidity">—</span>
+            </div>
+            <div class="weather-detail__row">
+              <span class="weather-detail__label">🌧️ Probabilitat pluja</span>
+              <span class="weather-detail__value" id="weather-rain">—</span>
+            </div>
+            <div class="weather-detail__row rain-status" id="rain-status-row">
+              <span id="rain-label" class="rain-label">—</span>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="card card--currency" id="card-currency">
+        <div class="card__header">
+          <h2 class="card__title">💱 Conversió de moneda</h2>
+        </div>
+        <div class="card__body currency-body">
+          <div class="currency-input-row">
+            <input
+              type="number"
+              id="eur-amount"
+              class="currency-input"
+              placeholder="100"
+              min="0"
+              value="100"
+            />
+            <span class="currency-badge">EUR</span>
+            <span class="currency-arrow">→</span>
+            <span class="currency-badge currency-badge--target" id="target-currency-label">—</span>
+          </div>
+          <button id="convert-btn" class="btn btn--convert">Convertir</button>
+          <div class="currency-result" id="currency-result">
+            <span id="result-text">Introdueix una quantitat i prem Convertir</span>
+          </div>
+        </div>
+      </section>
+      <section class="card card--tip" id="card-tip">
+        <div class="card__header">
+          <h2 class="card__title">🗺️ Recomanació de viatge</h2>
+        </div>
+        <div class="card__body">
+          <p id="travel-tip" class="travel-tip">Selecciona una ciutat per veure la recomanació.</p>
+        </div>
+      </section>
+
+    </div>
+    <div id="error-msg" class="error-msg hidden"></div>
+
+  </main>
+
+  <footer class="footer">
+    <p>Dades meteorològiques: <a href="https://open-meteo.com" target="_blank">Open-Meteo</a> · Canvi de moneda: <a href="https://www.frankfurter.app" target="_blank">Frankfurter</a></p>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
